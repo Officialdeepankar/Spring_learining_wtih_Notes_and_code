@@ -1,0 +1,5 @@
+package com.springcore.primitive;
+
+public class Student {
+
+}

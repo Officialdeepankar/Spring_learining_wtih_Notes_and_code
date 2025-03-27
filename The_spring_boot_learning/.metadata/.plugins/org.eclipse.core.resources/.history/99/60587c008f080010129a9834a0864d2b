@@ -1,0 +1,17 @@
+package com.springcore.collectionInjection;
+
+import java.util.List;
+import java.util.Set;
+import java.util.Map;
+
+public class collection {
+
+	
+	private String name;
+	
+	private List<String>address;
+	
+	private Set<String>phno;
+	
+	private Map<String,String>course;
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    
+    <bean id="StudentBean" class="com.springcore.ConstructorInjection.Student">
+    
+    <constructor-arg index="0"><value>1</value></constructor-arg>
+    
+    <constructor-arg index="1">
+    <list>
+       <value>Deepankar</value>
+       <value>Pooja</value>
+       <value>Sarthak</value>
+       <value>Ankit</value>
+       <value>Vishal</value>
+       <value>Vishal</value>
+    </list>
+    
+    </constructor-arg>
+    
+    
+    <constructor-arg index="2">
+     <set>
+      <value>123</value>
+      <value>234</value>
+      
+<!--     duplicate element entered -->
+     
+      <value>456</value>
+      <value>456</value>
+     
+      <value>567</value>
+      <value>235</value>
+      <value>347</value>
+     </set>
+    
+    
+    </constructor-arg>
+    
+    
+    
+    <constructor-arg index="3">
+    <map>
+     <entry key="Deepankar" value="MERN"></entry>
+     <entry key="Pooja" value="CN"></entry>
+     <entry key="Sarthak" value="DSA"></entry>
+    
+    </map>
+    
+    </constructor-arg>
+    
+    </bean>
+    
+    
+
+</beans>

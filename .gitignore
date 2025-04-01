@@ -1,0 +1,18 @@
+# Ignore compiled files
+target/
+*.class
+
+# Ignore IDE & system files
+.metadata/
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store
+
+# Ignore Eclipse/IntelliJ project files
+.classpath
+.project
+.settings/
+
+# Ignore Maven wrapper
+mvnw*

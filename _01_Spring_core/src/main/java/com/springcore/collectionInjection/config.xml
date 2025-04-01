@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    
+   <bean name="collection" class="com.springcore.collectionInjection.Collections">
+   
+   <property name="name">
+   
+   <value>Deepankar</value>
+   
+   </property>
+   
+   <property name="address">
+   <list>
+      <value>India</value>
+      <value>America</value>
+   </list>
+   
+   </property>
+   
+   
+   <property name="phno">
+   
+   
+   <set>
+    <value>1234</value>
+    <value>3456</value>
+   
+   </set>
+   
+   </property>
+   
+   <property name="course">
+    
+    <map>
+    <entry key="1" value="DBMS"></entry>
+    <entry key="2" value="JAVA"></entry>
+    
+    </map>
+   
+   
+   </property>
+   
+   
+   
+   
+   </bean>
+
+</beans>

@@ -9,8 +9,8 @@
 <!--    step-1) we  have Loaded all object -->
     
     <bean id='StudentBean' class="com.XMLApproach.forInitDestroy.Student" init-method="init" destroy-method="destroy">
-    <property name="id" value="1"></property>
-    <property name="name" value="Deepankar Singh"></property>
+    <property name="id" value="2"></property>
+    <property name="name" value="Ankit kumar"></property>
     
     </bean>
 

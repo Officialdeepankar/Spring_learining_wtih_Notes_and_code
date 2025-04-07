@@ -31,6 +31,7 @@ public class App {
 		 
 		 Employee GenEmp=context.getBean("employee",Employee.class);
 		 EmployeeDAO dao= context.getBean("empdao",EmployeeDAO.class);
+		 System.out.println("welcome to Employee management through JDBC");
 //		-----------------------INSERT---------------------------
 //		 GenEmp.setId(2);
 //		 GenEmp.setName("Pooja Prajapati");

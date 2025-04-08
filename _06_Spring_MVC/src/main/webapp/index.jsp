@@ -7,10 +7,11 @@
 </head>
 <body>
     <h1>Welcome to Spring MVC (Annotation-based) Project</h1>
-    <p><a href="<c:url value='/' />">Go to Home Page</a></p>
+    
 	
-	<a href="/StudentForm">StudentForm</a>
 	
-    <a href="/add"> AddTwoNumbers </a>
+  
+	
+	<a href="/StudentForm">STUDENT MANAGEMENT    </a>
 </body>
 </html>

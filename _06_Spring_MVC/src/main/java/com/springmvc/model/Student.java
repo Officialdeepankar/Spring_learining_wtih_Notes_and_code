@@ -1,7 +1,8 @@
 package com.springmvc.model;
 
 
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Id;
+
 
 import jakarta.persistence.Entity;
 

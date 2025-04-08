@@ -7,7 +7,8 @@
 </head>
 <body>
 	<h1> Student INFORMATION    </h1>
-   Student INFO:${STUDENTINFO} <br>
-   Greet:${greet}
+	
+   Student INFO:${msg}
+   
 </body>
 </html>

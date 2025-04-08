@@ -1,8 +1,14 @@
 package com.springmvc.springmvcboot;
 
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,7 +23,8 @@ import jakarta.servlet.http.HttpSession;
 public class HomeController {
 	
 	
-	
+	@Autowired
+	StudentRepo db;
 	/*
 	 * HERE we will be using @model attriubte and it will work before any request mapping 
 	 * 
@@ -39,12 +46,12 @@ public class HomeController {
 	}
 	
 	
-	@RequestMapping("/add")
-	
-	public String add()
-	{
-		return "add.jsp";
-	}
+//	@RequestMapping("/add")
+//	
+//	public String add()
+//	{
+//		return "add.jsp";
+//	}
 	
 // --------------------------------------WITHOUT @REQUEST MAPPING---------------------------------	
 //	@RequestMapping("addboth")
@@ -102,17 +109,17 @@ public class HomeController {
 	*/
 	
 	//----------------------------------- MODEL ----------------------------------------------------
-	@RequestMapping("addboth")
-	public String  addboth(@RequestParam("num1") int i, @RequestParam("num2") int j,Model m)
-	{
-		
-		int num3=i+j;
-		
-		m.addAttribute("num3",num3);
-
-		return "result.jsp";
-		
-	}
+//	@RequestMapping("addboth")
+//	public String  addboth(@RequestParam("num1") int i, @RequestParam("num2") int j,Model m)
+//	{
+//		
+//		int num3=i+j;
+//		
+//		m.addAttribute("num3",num3);
+//
+//		return "result.jsp";
+//		
+//	}
 	
 	
 	
@@ -155,20 +162,92 @@ public class HomeController {
 	
 	*/
 	
+	/*
+	
 	// ------------------------------------------By using Model attribute------------------------
-	 @RequestMapping("addStudent")
-		public String  getStudentInfo(@ModelAttribute Student s,Model m)
+//	 @RequestMapping("addStudent")
+//		public String  getStudentInfo(@ModelAttribute Student s,Model m)
+//		{
+//			// now in 'm" model i want to add Student object by newly creating it. 
+//	    	
+//	    	// step-1) Creating student object
+//	    	
+//	    	
+//	    	// step-2) Adding this object to my model 'm'
+//	    	
+//	    	m.addAttribute("STUDENTINFO",s);
+//	    	
+//	    	return "ShowStudent.jsp";
+//		}
+	
+	
+	*/
+	
+	
+	/*
+	 ------------------------------------ Method-1) add student-----------------------------
+	 
+	 */
+	
+	@PostMapping("addStudent")
+	  public String addStudent(@ModelAttribute Student s,Model m)
+	  {
+		Student stu= db.save(s);
+		
+		if (stu!=null && stu.getId()!=0)
 		{
-			// now in 'm" model i want to add Student object by newly creating it. 
-	    	
-	    	// step-1) Creating student object
-	    	
-	    	
-	    	// step-2) Adding this object to my model 'm'
-	    	
-	    	m.addAttribute("STUDENTINFO",s);
-	    	
-	    	return "ShowStudent.jsp";
+			
+			m.addAttribute("msg",s);
+		}else
+		{
+			m.addAttribute("msg","falied to save student ");
 		}
+		 
+		 return "ShowStudent.jsp";
+	  }
+	
+	
+	//-----------------------------------------Method-2) Delete student--------------------------------
+	
+	@PostMapping("deleteStudent")
+	
+	  public String   deleteStudent(@RequestParam("idS") int id, Model m)
+	  
+	  {
+		 db.deleteById(id);
+		
+		 if(!db.existsById(id))
+		 {
+			 m.addAttribute("msg","Successfully deleted ");
+		 }else
+		 {
+			 m.addAttribute("msg","Not deleted ");
+		 }
+		return "ShowStudent.jsp";
+	  }
+	
+	// -------------------------------------Method-3) show all student----------------------------------
+     @GetMapping("GetAllStudent")
+	public String ShowAllStudent(Model m)
+	{
+		List<Student>st=db.findAll();
+		
+		m.addAttribute("msg",st);
+		
+		return "ShowStudent.jsp";
+	}
+	
+	//--------------------------------------update student---------------------------------
+
+     @PostMapping("updateStudent")
+     public String updateStudent(@ModelAttribute Student s, Model m) {
+         if (db.existsById(s.getId())) {
+             db.save(s); // update because ID exists
+             m.addAttribute("msg", "Student updated successfully!");
+         } else {
+             m.addAttribute("msg", "Student not found. Update failed.");
+         }
+         return "ShowStudent.jsp";
+     }
 	
 }

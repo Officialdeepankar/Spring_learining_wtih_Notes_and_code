@@ -6,14 +6,13 @@
     <title>Index Page</title>
 </head>
 <body>
-	<h1>Input two numbers:   </h1>
-    <form action="addboth">
-      <label> digit first </label>
-		<input type="text" name="num1">   </input>
+	<h1> STUDENT FORM  </h1>
+    <form action="addStudent">
+      <label> Enter id </label>
+		<input type="text" name="id">   </input>
 		
-		<label> digit second </label>
-				<input type="text" name="num2">   </input>
-				
+		<label> Enter name </label>
+				<input type="text" name="name">   </input>		
 		<button type="submit" > Submit </button>
 		</form>
 		

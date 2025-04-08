@@ -6,8 +6,8 @@
     <title>Index Page</title>
 </head>
 <body>
-	<h1> Result of adding two numbers:  </h1>
-   RESULT ${num3}
-   so i
+	<h1> Student INFORMATION    </h1>
+   Student INFO:${STUDENTINFO} <br>
+   Greet:${greet}
 </body>
 </html>

@@ -51,6 +51,15 @@
 		  		<button type="submit" > Submit </button>
 		  		</form>
 
+<h2> -----------------------------------------------------------------------------------</h2>	
+				           <h1>   Find student who have similar name as you </h1>
+
+				          <form action="SimilarStudent">  
+							
+							<label>Type Name </label>
+							<input type="text" name="name">   </input>
+						    <button type="submit">SUBMIT </button>
+						  </form>
 		
 </body>
 </html>

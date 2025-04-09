@@ -249,5 +249,28 @@ public class HomeController {
          }
          return "ShowStudent.jsp";
      }
-	
+     
+     //------------------------------------------------------ Query JSl------------------------------
+     
+  // what if i dont want to use the primary key for extracting infromation out of mysql database 
+ 	/*
+ 	 * What about if i want to use other parameter;
+ 	 */
+     
+     @GetMapping("SimilarStudent")
+  public String GetSimilarStudents(@RequestParam("name")String name,Model m)
+	  {
+    	List<Student>ls= db.findByNameOrderByName(name);
+    	
+    	m.addAttribute("msg",ls);
+    	
+    	return "ShowStudent.jsp";
+	  }
+     
+     
+     
+     //-----------------------------------------------Query DSL---------------------------------------
+     
+  
+    
 }
